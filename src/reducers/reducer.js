@@ -1,3 +1,5 @@
+export const ADD_ITEM = "ADD_ITEM";
+
 export const initialState = {
   list: [
     {
@@ -16,13 +18,11 @@ export const initialState = {
 export const reducer = (state, action) => {
   // set up switch statement here
   switch (action.type) {
-    // case "ADD_ITEM":
-    //   {
-    //   }
-    //   return {
-    //     ...state,
-    //     items: [...state.items, newItem]
-    //   };
+    case "ADD_ITEM":
+      {
+        console.log("in reducer!");
+      }
+      return state;
     default:
       return state;
   }

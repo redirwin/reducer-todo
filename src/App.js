@@ -5,17 +5,27 @@ import "./App.css";
 import Header from "./components/Header";
 import Incomplete from "./components/Incomplete";
 import Completed from "./components/Completed";
-import { reducer, initialState } from "./reducers/reducer";
+import {
+  reducer,
+  initialState,
+  ADD_ITEM,
+  TOGGLE_DONE,
+  CLEAR_DONE
+} from "./reducers/reducer";
 
 function App() {
-  const [{ list }, dispatch] = useReducer(reducer, initialState);
-  console.log(list);
+  const [list, dispatch] = useReducer(reducer, initialState);
+
+  const addItem = item => {
+    // e.preventDefault();
+    dispatch({ type: ADD_ITEM, payload: item });
+  };
 
   return (
     <div className="App">
-      <Header />
-      <Incomplete list={list} dispatch={dispatch} />
-      <Completed list={list} dispatch={dispatch} />
+      <Header addItem={addItem} />
+      <Incomplete />
+      <Completed />
     </div>
   );
 }

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useReducer } from "react";
+
+import { reducer, initialState } from "../reducers/reducer";
 
 export default function Incomplete(props) {
-  const incomplete = props.list.filter(item => !item.completed);
+  const [{ list }, dispatch] = useReducer(reducer, initialState);
+  const incomplete = list.filter(item => !item.completed);
 
   return (
     <section>
