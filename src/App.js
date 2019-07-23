@@ -14,18 +14,18 @@ import {
 } from "./reducers/reducer";
 
 function App() {
-  const [list, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addItem = item => {
-    // e.preventDefault();
+  const addItem = (e, item) => {
+    e.preventDefault();
     dispatch({ type: ADD_ITEM, payload: item });
   };
 
   return (
     <div className="App">
       <Header addItem={addItem} />
-      <Incomplete />
-      <Completed />
+      <Incomplete list={state.list} />
+      <Completed list={state.list} />
     </div>
   );
 }

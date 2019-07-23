@@ -1,10 +1,7 @@
 import React, { useReducer } from "react";
 
-import { reducer, initialState } from "../reducers/reducer";
-
 export default function Completed(props) {
-  const [{ list }, dispatch] = useReducer(reducer, initialState);
-  const completed = list.filter(item => item.completed);
+  const completed = props.list.filter(item => item.completed);
 
   return (
     <section>

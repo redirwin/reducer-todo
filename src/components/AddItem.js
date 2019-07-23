@@ -10,7 +10,7 @@ export default function AddItem(props) {
   const handleSubmit = e => {
     e.preventDefault();
     changeInput("");
-    props.addItem(e.target.value);
+    props.addItem(e, input);
   };
 
   return (
