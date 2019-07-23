@@ -1,6 +1,5 @@
-import React, { useReducer } from "react";
+import React from "react";
 
-import { reducer, initialState } from "../reducers/reducer";
 import checked from "../assets/checked.png";
 import AddItem from "../components/AddItem";
 

@@ -1,5 +1,3 @@
-import { isTemplateElement } from "@babel/types";
-
 export const ADD_ITEM = "ADD_ITEM";
 export const TOGGLE_DONE = "TOGGLE_DONE";
 export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
