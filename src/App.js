@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import "./App.css";
 
 // custom imports
@@ -8,11 +8,14 @@ import Completed from "./components/Completed";
 import { reducer, initialState } from "./reducers/reducer";
 
 function App() {
+  const [{ list }, dispatch] = useReducer(reducer, initialState);
+  console.log(list);
+
   return (
     <div className="App">
       <Header />
-      <Incomplete />
-      <Completed />
+      <Incomplete list={list} dispatch={dispatch} />
+      <Completed list={list} dispatch={dispatch} />
     </div>
   );
 }

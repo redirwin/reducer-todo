@@ -1,16 +1,14 @@
 import React from "react";
 
-export default function Completed() {
+export default function Completed(props) {
+  const completed = props.list.filter(item => item.completed);
+
   return (
     <section>
-      <h2>
-        All Done <button>Clear Completed</button>
-      </h2>
-      <ul>
-        <p>Dolor officia sint aliqua irure culpa.</p>
-        <p>Voluptate occaecat culpa irure excepteur anim aliquip.</p>
-        <p>Irure proident esse sint adipisicing ut in ad deserunt.</p>
-      </ul>
+      <h2>Completed</h2>
+      {completed.map(item => (
+        <p>{item.description}</p>
+      ))}
     </section>
   );
 }
