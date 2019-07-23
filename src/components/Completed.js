@@ -7,7 +7,13 @@ export default function Completed(props) {
     <section>
       <h2>Completed</h2>
       {completed.map(item => (
-        <p>{item.description}</p>
+        <p
+          onClick={e => {
+            props.toggleDone(item.id);
+          }}
+        >
+          {item.description}
+        </p>
       ))}
     </section>
   );

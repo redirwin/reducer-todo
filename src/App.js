@@ -21,11 +21,15 @@ function App() {
     dispatch({ type: ADD_ITEM, payload: item });
   };
 
+  const toggleDone = id => {
+    dispatch({ type: TOGGLE_DONE, payload: id });
+  };
+
   return (
     <div className="App">
       <Header addItem={addItem} />
-      <Incomplete list={state.list} />
-      <Completed list={state.list} />
+      <Incomplete list={state.list} toggleDone={toggleDone} />
+      <Completed list={state.list} toggleDone={toggleDone} />
     </div>
   );
 }

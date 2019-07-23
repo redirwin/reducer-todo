@@ -7,7 +7,13 @@ export default function Incomplete(props) {
     <section>
       <h2>Get These Done</h2>
       {incomplete.map(item => (
-        <p>{item.description}</p>
+        <p
+          onClick={e => {
+            props.toggleDone(item.id);
+          }}
+        >
+          {item.description}
+        </p>
       ))}
     </section>
   );

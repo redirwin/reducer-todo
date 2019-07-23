@@ -1,4 +1,7 @@
+import { isTemplateElement } from "@babel/types";
+
 export const ADD_ITEM = "ADD_ITEM";
+export const TOGGLE_DONE = "TOGGLE_DONE";
 
 export const initialState = {
   list: [
@@ -9,8 +12,8 @@ export const initialState = {
     },
     {
       description: "start project",
-      completed: true,
-      id: 1
+      completed: false,
+      id: 2
     }
   ]
 };
@@ -19,7 +22,6 @@ export const reducer = (state, action) => {
   // set up switch statement here
   switch (action.type) {
     case "ADD_ITEM": {
-      console.log(action.payload);
       const newItem = {
         description: action.payload,
         completed: false,
@@ -28,6 +30,20 @@ export const reducer = (state, action) => {
       return {
         ...state,
         list: [...state.list, newItem]
+      };
+    }
+    case "TOGGLE_DONE": {
+      return {
+        ...state,
+        list: state.list.map(item => {
+          if (action.payload === item.id) {
+            return {
+              ...item,
+              completed: !item.completed
+            };
+          }
+          return item;
+        })
       };
     }
     default:
