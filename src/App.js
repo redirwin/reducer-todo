@@ -10,7 +10,7 @@ import {
   initialState,
   ADD_ITEM,
   TOGGLE_DONE,
-  CLEAR_DONE
+  CLEAR_COMPLETED
 } from "./reducers/reducer";
 
 function App() {
@@ -25,11 +25,19 @@ function App() {
     dispatch({ type: TOGGLE_DONE, payload: id });
   };
 
+  const clearCompleted = () => {
+    dispatch({ type: CLEAR_COMPLETED });
+  };
+
   return (
     <div className="App">
       <Header addItem={addItem} />
       <Incomplete list={state.list} toggleDone={toggleDone} />
-      <Completed list={state.list} toggleDone={toggleDone} />
+      <Completed
+        list={state.list}
+        toggleDone={toggleDone}
+        clearCompleted={clearCompleted}
+      />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { isTemplateElement } from "@babel/types";
 
 export const ADD_ITEM = "ADD_ITEM";
 export const TOGGLE_DONE = "TOGGLE_DONE";
+export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 
 export const initialState = {
   list: [
@@ -44,6 +45,12 @@ export const reducer = (state, action) => {
           }
           return item;
         })
+      };
+    }
+    case "CLEAR_COMPLETED": {
+      return {
+        ...state,
+        list: state.list.filter(item => item.completed !== true)
       };
     }
     default:

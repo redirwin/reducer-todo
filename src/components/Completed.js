@@ -5,7 +5,9 @@ export default function Completed(props) {
 
   return (
     <section>
-      <h2>Completed</h2>
+      <h2>
+        Completed<button onClick={props.clearCompleted}>Clear Completed</button>
+      </h2>
       {completed.map(item => (
         <p
           onClick={e => {
