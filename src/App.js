@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import "./App.css";
+import styled from "styled-components";
 
 // custom imports
 import Header from "./components/Header";
@@ -13,7 +14,7 @@ import {
   CLEAR_COMPLETED
 } from "./reducers/reducer";
 
-function App() {
+export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const addItem = (e, item) => {
@@ -30,16 +31,43 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <AppWrapper className="App">
       <Header addItem={addItem} />
-      <Incomplete list={state.list} toggleDone={toggleDone} />
-      <Completed
-        list={state.list}
-        toggleDone={toggleDone}
-        clearCompleted={clearCompleted}
-      />
-    </div>
+      <div>
+        <Incomplete list={state.list} toggleDone={toggleDone} />
+        <Completed
+          list={state.list}
+          toggleDone={toggleDone}
+          clearCompleted={clearCompleted}
+        />
+      </div>
+    </AppWrapper>
   );
 }
 
-export default App;
+const AppWrapper = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+
+  flex-direction: column;
+
+  button {
+    background-color: #0aa06e;
+    color: white;
+    padding: 0.5rem;
+  }
+
+  input {
+    padding: 0.5rem;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  section {
+    width: 33%;
+  }
+`;

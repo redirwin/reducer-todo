@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function AddItem(props) {
-  const [input, changeInput] = useState();
+  const [input, changeInput] = useState("");
 
   const handleChange = e => {
     changeInput(e.target.value);
