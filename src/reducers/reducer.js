@@ -3,18 +3,7 @@ export const TOGGLE_DONE = "TOGGLE_DONE";
 export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 
 export const initialState = {
-  list: [
-    {
-      description: "learn about reducers",
-      completed: false,
-      id: 1
-    },
-    {
-      description: "start project",
-      completed: false,
-      id: 2
-    }
-  ]
+  list: []
 };
 
 export const reducer = (state, action) => {

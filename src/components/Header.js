@@ -22,6 +22,8 @@ const HeaderWrapper = styled.header`
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
+  background-color: #24292e;
+  color: white;
 
   div {
     display: flex;

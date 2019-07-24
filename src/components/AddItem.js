@@ -21,7 +21,6 @@ export default function AddItem(props) {
     >
       <input
         type="text"
-        name="newItem"
         placeholder="Enter new task..."
         value={input}
         onChange={e => {

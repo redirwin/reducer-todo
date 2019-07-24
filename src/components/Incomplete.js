@@ -5,7 +5,7 @@ export default function Incomplete(props) {
 
   return (
     <section>
-      <h2>Get These Done</h2>
+      <h3>Get These Done</h3>
       {incomplete.map(item => (
         <p
           key={item.id}

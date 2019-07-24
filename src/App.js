@@ -33,7 +33,7 @@ export default function App() {
   return (
     <AppWrapper className="App">
       <Header addItem={addItem} />
-      <div>
+      <div className="body-wrapper">
         <Incomplete list={state.list} toggleDone={toggleDone} />
         <Completed
           list={state.list}
@@ -46,28 +46,31 @@ export default function App() {
 }
 
 const AppWrapper = styled.div`
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-
-  flex-direction: column;
-
   button {
     background-color: #0aa06e;
     color: white;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #0aa06e;
+    cursor: pointer;
   }
 
   input {
-    padding: 0.5rem;
+    padding: 0.25rem;
   }
-
-  div {
+  .body-wrapper {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-evenly;
-  }
 
-  section {
-    width: 33%;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    section {
+      width: 33%;
+    }
   }
 `;
